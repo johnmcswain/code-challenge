@@ -20,17 +20,18 @@
                 </div>
             </div>
             <div class="row"  ng-repeat="x in resultSet">
-                <div class="col s8">
+                <div class="col s10">
             <div class="card #1e88e5 blue darken-1">
                 <div class="card-content">
                     <span class="card-title activator grey-text text-darken-4">{{x.TitleName}}<i class="material-icons right">more_vert</i></span>
+                    <p><strong>Released:</strong> {{x.ReleaseYear}}</p>
+                    <p><strong>Description:</strong> {{x.Storylines[0].Description}}</p>
+
                 </div>
                 <div class="card-reveal #ff9100 orange accent-3">
                     <span class="card-title  grey-text text-darken-4"><i class="material-icons right">close</i></span>
                     <h5>{{x.TitleName}}</h5>
-                    <p><strong>Released:</strong> {{x.ReleaseYear}}</p>
                     <p><strong>Genres:</strong> <span ng-repeat="genre in x.Genres">{{genre}} </span></p>
-                    <p><strong>Description:</strong> {{x.Storylines[0].Description}}</p>
                     <p><strong>Cast:</strong> <span ng-repeat="y in x.Participants | filter: {IsOnScreen:true}" >{{y.Name}}, </span></p>
                     <p><strong>Groups:</strong> <span ng-repeat="q in x.Participants | filter: {ParticipantType:'Group',IsOnScreen:false}" >{{q.Name}}, </span></p>
                     <p><strong>Awards:</strong> <span ng-repeat="z in x.Awards | filter:{AwardWon:true}">{{z.Award}}<em ng-if="z.Participants[0]">({{z.Participants[0]}})</em>, </span></p>
