@@ -30,8 +30,8 @@
                     <p><strong>Released:</strong> {{x.ReleaseYear}}</p>
                     <p><strong>Genres:</strong> <span ng-repeat="genre in x.Genres">{{genre}} </span></p>
                     <p><strong>Description:</strong> {{x.Storylines[0].Description}}</p>
-                    <p><strong>Cast:</strong> <span ng-repeat="y in x.Participants | filter: isOnScreen==true" >{{y.Name}}, </span></p>
-                    <p><strong>Groups:</strong> <span ng-repeat="q in x.Participants | filter: ParticipantType=='Group'" >{{q.Name}}, </span></p>
+                    <p><strong>Cast:</strong> <span ng-repeat="y in x.Participants | filter: y.isOnScreen==true" >{{y.Name}}, </span></p>
+                    <p><strong>Groups:</strong> <span ng-repeat="q in x.Participants | filter: q.ParticipantType=='Group'" >{{q.Name}}, </span></p>
                     <p><strong>Awards:</strong> <span ng-repeat="z in x.Awards | filter:AwardWon == true">{{z.Award}}, </span></p>
                 </div>
             </div>
