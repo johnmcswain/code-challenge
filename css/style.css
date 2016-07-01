@@ -3,8 +3,11 @@ p{
 }
 
 .medium-text-size{
-  font-size: 1.5em;
+  font-size: .9em;
 }
 .card{
-    height:200px;
+    height:120%;
+    margin: 10px;
+    float:left;
+    display:inline-block;
 }
