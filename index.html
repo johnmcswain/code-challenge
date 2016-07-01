@@ -31,6 +31,7 @@
                     <p><strong>Genres:</strong> <span ng-repeat="genre in x.Genres">{{genre}} </span></p>
                     <p><strong>Description:</strong> {{x.Storylines[0].Description}}</p>
                     <p><strong>Cast:</strong> <span ng-repeat="y in x.Participants | filter: {isOnScreen: true,ParticipantType:'Person'}" >{{y.Name}}, </span></p>
+                    <p><strong>Groups:</strong> <span ng-repeat="y in x.Participants | filter: ParticipantType:'Group'" >{{y.Name}}, </span></p>
                     <p><strong>Awards:</strong> <span ng-repeat="z in x.Awards | filter:AwardWon == true">{{z.Award}}, </span></p>
                 </div>
             </div>
