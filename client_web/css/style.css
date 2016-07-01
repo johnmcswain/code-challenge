@@ -1,7 +1,13 @@
 p{
     margin-bottom:7px;
 }
-.card{
-    height:300px;
-}
 
+.medium-text-size{
+  font-size: .9em;
+}
+.card{
+    height:120%;
+    margin: 10px;
+    float:left;
+    display:inline-block;
+}

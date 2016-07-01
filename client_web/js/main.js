@@ -4,8 +4,13 @@
 
 
 var HOST='https://jm-turner.herokuapp.com/db', queryString='?TitleName=';
+
+
+
 angular.module('turnerApp', []) .controller('mainCtrl', ['$scope','$http',function($scope,$http) {
     // Controller specific code goes here
+
+    
     console.log('MainCtrl has been created');
     $scope.titleNameSearchField = '';
     $scope.resultSet;
@@ -16,4 +21,4 @@ angular.module('turnerApp', []) .controller('mainCtrl', ['$scope','$http',functi
                 $scope.resultSet = response.data;
             });
     }
-}]); 
+}]);
