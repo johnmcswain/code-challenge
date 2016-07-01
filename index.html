@@ -33,7 +33,7 @@
                     <p><strong>Description:</strong> {{x.Storylines[0].Description}}</p>
                     <p><strong>Cast:</strong> <span ng-repeat="y in x.Participants | filter: {IsOnScreen:true}" >{{y.Name}}, </span></p>
                     <p><strong>Groups:</strong> <span ng-repeat="q in x.Participants | filter: {ParticipantType:'Group',IsOnScreen:false}" >{{q.Name}}, </span></p>
-                    <p><strong>Awards:</strong> <span ng-repeat="z in x.Awards | filter:{AwardWon:true}">{{z.Award}}({{z.Name}}), </span></p>
+                    <p><strong>Awards:</strong> <span ng-repeat="z in x.Awards | filter:{AwardWon:true}">{{z.Award}}<em ng-if="z.Participants[0]">({{z.Name}})</em>, </span></p>
                 </div>
             </div>
                     </div>
