@@ -23,22 +23,7 @@
 <div class="row">
     <div class="col s4">
       <div class="card #1e88e5 blue darken-1" ng-repeat="x in resultSet" ng-if="$index <= 7">
-        <div class="card-content">
-          <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" ng-src="images/{{x.TitleName}}.jpg">
-          </div>
-          <span class="card-title activator grey-text text-darken-4">{{x.TitleName}}<i class="material-icons right">more_vert</i></span>
-          <p class="medium-text-size"><strong>Released:</strong> {{x.ReleaseYear}}</p>
-          <p class="medium-text-size"><strong>Description:</strong> {{x.Storylines[0].Description}}</p>
-        </div>
-        <div class="card-reveal #ff9100 orange accent-3">
-          <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
-          <h6>{{x.TitleName}}</h6>
-          <p><strong>Genres:</strong> <span ng-repeat="genre in x.Genres">{{genre}}<span ng-if="!$last">, </span></span></p>
-          <p><strong>Cast:</strong> <span ng-repeat="y in x.Participants | filter: {IsOnScreen:true}" >{{y.Name}}<span ng-if="!$last">, </span></span></p>
-          <p><strong>Groups:</strong> <span ng-repeat="q in x.Participants | filter: {ParticipantType:'Group',IsOnScreen:false}" >{{q.Name}}<span ng-if="!$last">, </span></span></p>
-          <p><strong>Awards:</strong> <span ng-repeat="z in x.Awards | filter:{AwardWon:true}">{{z.Award}}<em ng-if="z.Participants[0]">({{z.Participants[0]}})</em><span ng-if="!$last">, </span></span></p>
-        </div>
+        <div ng-include="/partials/card-content.html"></div>
       </div>
 
     </div>
