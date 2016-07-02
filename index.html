@@ -34,10 +34,10 @@
         <div class="card-reveal #ff9100 orange accent-3">
           <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
           <h6>{{x.TitleName}}</h6>
-          <p><strong>Genres:</strong> <span ng-repeat="genre in x.Genres">{{genre}} </span></p>
-          <p><strong>Cast:</strong> <span ng-repeat="y in x.Participants | filter: {IsOnScreen:true}" >{{y.Name}}, </span></p>
-          <p><strong>Groups:</strong> <span ng-repeat="q in x.Participants | filter: {ParticipantType:'Group',IsOnScreen:false}" >{{q.Name}}, </span></p>
-          <p><strong>Awards:</strong> <span ng-repeat="z in x.Awards | filter:{AwardWon:true}">{{z.Award}}<em ng-if="z.Participants[0]">({{z.Participants[0]}})</em>, </span></p>
+          <p><strong>Genres:</strong> <span ng-repeat="genre in x.Genres">{{genre}}<span ng-if="!$last">, </span></span></p>
+          <p><strong>Cast:</strong> <span ng-repeat="y in x.Participants | filter: {IsOnScreen:true}" >{{y.Name}}<span ng-if="!$last">, </span></span></p>
+          <p><strong>Groups:</strong> <span ng-repeat="q in x.Participants | filter: {ParticipantType:'Group',IsOnScreen:false}" >{{q.Name}}<span ng-if="!$last">, </span></span></p>
+          <p><strong>Awards:</strong> <span ng-repeat="z in x.Awards | filter:{AwardWon:true}">{{z.Award}}<em ng-if="z.Participants[0]">({{z.Participants[0]}})</em><span ng-if="!$last">, </span></span></p>
         </div>
       </div>
 
