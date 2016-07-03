@@ -26,46 +26,45 @@ module.exports.MongoTitleModel = {
         return this;
     },
     instance: function (){
+        var awardSchema = new mongoose.Schema({
+            AwardWon:String,
+            AwardYear:String,
+            Participants:[],
+            Award:String,
+            AwardCompany:String
+        });
+        var otherNameSchema = new mongoose.Schema({
+            TitleNameLanguage: String,
+            TitleNameType: Number,
+            TitleNameSortable: [],
+            TitleName:Number
+        });
+        var participantNameSchema = new mongoose.Schema({
+            IsKey: Boolean,
+            RoleType: String,
+            IsOnScreen:Boolean,
+            ParticipantType:String,
+            Name: String,
+            ParticipantId:Number
+        });
+        var storyLineSchema = new mongoose.Schema({
+            Description:String,
+            Language:String,
+            Type:String
+        });
+        var titleSchema = new mongoose.Schema({
+            _id: String,
+            TitleName: String,
+            TitleId: Number,
+            Storylines: [storyLineSchema],
+            ReleaseYear:Number,
+            Participants: [participantNameSchema],
+            OtherNames: [otherNameSchema],
+            Genres: [],
+            Awards: [awardSchema]
+        });
         return mongoose.model('Title', titleSchema,'Titles');
     }
 };
 
-
-var mongoose = require('../node_modules/mongoose');
-var awardSchema = new mongoose.Schema({
-    AwardWon:String,
-    AwardYear:String,
-    Participants:[],
-    Award:String,
-    AwardCompany:String
-});
-var otherNameSchema = new mongoose.Schema({
-    TitleNameLanguage: String,
-    TitleNameType: Number,
-    TitleNameSortable: [],
-    TitleName:Number
-});
-var participantNameSchema = new mongoose.Schema({
-    IsKey: Boolean,
-    RoleType: String,
-    IsOnScreen:Boolean,
-    ParticipantType:String,
-    Name: String,
-    ParticipantId:Number
-});
-var storyLineSchema = new mongoose.Schema({
-    Description:String,
-    Language:String,
-    Type:String
-});
-var titleSchema = new mongoose.Schema({
-    _id: String,
-    TitleName: String,
-    TitleId: Number,
-    Storylines: [storyLineSchema],
-    ReleaseYear:Number,
-    Participants: [participantNameSchema],
-    OtherNames: [otherNameSchema],
-    Genres: [],
-    Awards: [awardSchema]
-});
+var mongoose = require('mongoose');

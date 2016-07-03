@@ -22,6 +22,6 @@ app.get('/db', function(req, res) {
 app.listen(app.get('port'));
 
 /************************* Mongo DB Logic ***********************************/
-var mongoTitleModel = require('../node_backend/db_modules/schema.js').MongoTitleModel;
+var mongoTitleModel = require('./db_modules/schema.js').MongoTitleModel;
 mongoTitleModel.init();
 
