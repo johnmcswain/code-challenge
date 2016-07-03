@@ -23,9 +23,6 @@ module.exports.MongoTitleModel = {
         mongoose.connection.on('disconnected', function () {
             console.log('Mongoose disconnected');
         });
-        return this;
-    },
-    instance: function (){
         var awardSchema = new mongoose.Schema({
             AwardWon:String,
             AwardYear:String,
@@ -63,7 +60,12 @@ module.exports.MongoTitleModel = {
             Genres: [],
             Awards: [awardSchema]
         });
-        return mongoose.model('Title', titleSchema,'Titles');
+        this.model = mongoose.model('Title', titleSchema,'Titles')
+        return this;
+    },
+    instance: function (){
+
+        return this.model;
     }
 };
 
