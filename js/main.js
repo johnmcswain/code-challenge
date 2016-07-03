@@ -3,7 +3,7 @@
  */
 
 
-var HOST='https://jm-turner.herokuapp.com/db', queryString='?TitleName=';
+var HOST='https://jm-code-challenge.herokuapp.com/db', queryString='?TitleName=';
 
 
 
