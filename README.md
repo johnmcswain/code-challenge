@@ -6,7 +6,7 @@
 
 GitHub repo link: (You're here already) https://github.com/johnmcswain/code-challenge<br>
 Live web client page: https://johnmcswain.github.io/code-challenge/<br>
-Live node client (i.e. https://jm-turner.herokuapp.com/db?TitleName=Cavalcade): https://jm-turner.herokuapp.com/db<br>
+Live node client (i.e. https://jm-code-challenge.herokuapp.com/db?TitleName=Cavalcade): https://jm-code-challenge.herokuapp.com/db<br>
 
 Clicking the 'search' button with an empty field returns all of the records. The title search is case sensitive (i.e. Cavalcade, not cavalcade) and the results are displayed in cards.<br>
 
