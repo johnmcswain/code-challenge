@@ -60,7 +60,9 @@ module.exports.MongoTitleModel = {
             Genres: [],
             Awards: [awardSchema]
         });
-        this.model = mongoose.model('Title', titleSchema,'Titles')
+        titleSchema.set('redisCache',true);
+        titleSchema.set('expires',24*60*60); //cache for a day
+        this.model = mongoose.model('Title', titleSchema,'Titles');
         return this;
     },
     instance: function (){
@@ -70,3 +72,21 @@ module.exports.MongoTitleModel = {
 };
 
 var mongoose = require('mongoose');
+var mongooseRedisCache = require("mongoose-redis-cache");
+
+
+ mongooseRedisCache(mongoose, {
+     //Ideally, this information would be in a separate config file, along
+     //with environmental settings and the like, but for simplicity sake...
+//PROD
+     host: "ec2-54-243-217-112.compute-1.amazonaws.com",
+     port: "14249",
+     pass: "pdpuc56lakiki1a2dji1bdu4d74"
+ /*
+ //DEV
+    host: "ec2-54-225-115-56.compute-1.amazonaws.com",
+    port: "28679",
+    pass: "pcvbbpcqjnoajr2s55nhqfc93oh"
+
+   */
+});
